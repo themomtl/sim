@@ -1,0 +1,33 @@
+#buy-sell button{
+    font-size: 1.5em;
+    height: 30%;
+    width: 80%;
+    margin-right: 50px;
+    margin: auto;
+    border-radius: 50px;
+    border: none;
+    
+}
+#buy-sell button:hover{
+    border: 1px solid rgb(145, 145, 145);
+    
+}
+#buy-sell button:nth-child(1){
+    color: rgb(19,115,51);
+    background-color: rgb(230,244,234);
+}
+#buy-sell button:nth-child(2){
+    color:  rgb(165,14,14);
+    background-color: rgb(252,232,230);
+
+}
+#buy-sell{
+    margin: 0;
+    padding: 0;
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid rgb(218,220,224);
+    border-radius: 12px;
+    place-items: center
+
+}

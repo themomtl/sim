@@ -1,0 +1,29 @@
+body{
+    margin: 0;
+}
+#root{
+    margin: 0;
+    padding: 0 20px ;
+    width: 60%;
+    margin: auto;
+    font-family: Helvetica,Arial, sans-serif;
+}
+
+input{
+    border:1px solid rgb(218,220,224);
+    height: 5vh;
+    width: 50%;
+    border-radius: 50px;
+    box-shadow: 0 1px 3px rgba(60,63,66,.32),0 4px 12px rgba(60,63,66,.15);
+    padding-left: 25px;
+    font-size: 1.25em;
+}
+form{
+    text-align: center;
+    margin: 10px 0;
+}
+#head{
+    margin: 20px 0;
+    display: grid;
+    grid-template-columns: 1fr 11fr;
+}

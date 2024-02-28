@@ -1,0 +1,27 @@
+#login-form{
+    padding: 100px 50px;
+    border: 1px solid rgb(218,220,224);
+    border-radius: 12px;
+    margin:  0 250px ;
+    margin-top: 50px;
+}
+#login-form div{
+    margin: 10px 0;
+
+}
+#login-form div input{
+    width: 30%;
+    
+}
+#login-form button{
+    font-size: 1.5em;
+    height: 30%;
+    width: 20%;
+    margin-right: 50px;
+    margin: auto;
+    border-radius: 50px;
+    border: none;
+    padding: 5px 0;
+    
+}
+

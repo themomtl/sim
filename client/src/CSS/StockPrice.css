@@ -1,0 +1,8 @@
+#price{
+    border: 1px solid rgb(218,220,224);
+    border-radius: 20px;
+    padding: 10px;
+}
+#stock-name,#stock-price{
+    font-size: 2em;
+}
