@@ -10,7 +10,7 @@ export default function StockOwned({render,setRender}) {
     (async()=>{
       try {
     
-        const res = await fetch('http://localhost:3000/api')
+        const res = await fetch('/api/users/stock',{credentials: 'include',} )
         if(!res.ok){
             throw new Error()
         }
@@ -29,7 +29,7 @@ export default function StockOwned({render,setRender}) {
   
   return (
     <div id='stock-list'>
-      {stocks?.map(stock => <StockListing key={stock.id} stock={stock} render={render} setRender={setRender}/>)}
+      {stocks?.map(stock => <StockListing key={stock._id} stock={stock} render={render} setRender={setRender}/>)}
     </div>
   )
 }

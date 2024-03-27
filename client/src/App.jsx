@@ -7,17 +7,14 @@ import Login from './Login'
 
 function App() {
   const [ticker, setTicker] = useState()
-  const [loggedin,setLoggedin] = useState(false)
-
-  console.log(loggedin)
+  const [user,setUser] = useState(false)
   return (
     <>
-      {loggedin ? 
-      <div>
-      <TickInput setTicker={setTicker}/>
-      <Client ticker={ticker}/>
-      </div> : <Login setLoggedin={setLoggedin}/>}
-      
+      {!user ? <Login setUser={setUser}/> : 
+      <>
+        <TickInput setTicker={setTicker} user={user} setUser={setUser}/>
+        <Client ticker={ticker}/>
+      </>}
     </>
   )
 }

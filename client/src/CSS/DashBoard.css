@@ -1,15 +1,13 @@
 #dash{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr ;
     height: 7vh;
     gap: 10px;
     margin-bottom: 10px;
 }
-#dash div{
-    display: grid;
-    grid-template-columns: 1fr;
-    place-items: center;
+.dash-div{
     border: 1px solid rgb(218,220,224);
-    border-radius: 12px;
-    
+    border-radius: 20px;
+    padding: 10px;
+    text-align: center;
 }

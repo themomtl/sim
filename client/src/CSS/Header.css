@@ -4,3 +4,29 @@
     border-bottom: 1px rgb(218,220,224) solid;
     padding: .25em;
 }
+#head{
+    margin: 20px 0;
+    display: grid;
+    grid-template-columns: 1fr 5fr 1fr 1fr;
+}
+
+#head button{
+    color: black;
+  background-color: rgb(212, 212, 212);
+  font-size: 1em;
+  width: 80%;
+  height: 50%;
+  margin-right: 50px;
+  margin: auto;
+  border-radius: 50px;
+  border: none;
+}
+#head button:hover{
+    border: 1px solid black;
+    box-sizing: border-box;
+    
+}
+#head :nth-child(3){
+    text-align: center;
+    margin: auto;
+}

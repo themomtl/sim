@@ -1,25 +1,20 @@
 import React, { useState } from 'react'
 import './CSS/Login.css'
 
-export default function Login({setLoggedin}) {
-    const [userName ,setUserName] = useState();
-    const [password, setPassword] = useState();
+export default function Login({setUser}) {
+    const [userName ,setUserName] = useState('');
+    const [password, setPassword] = useState('');
 
 
- const onChangeU = e =>{
-    setUserName(e.target.value);
 
- }
- const onChangeP = e =>{
-    setPassword(e.target.value);
 
- }
  const onSubmit = async e =>{
     e.preventDefault();
     try {
-        const response = await fetch('http://localhost:3000/api/login',{
+        const response = await fetch('/api/users/login',{
             method: 'POST', 
             headers: {'Content-Type': 'application/json'},
+            credentials: 'include',
             body: JSON.stringify({
                 username: userName,
                 password: password
@@ -28,12 +23,32 @@ export default function Login({setLoggedin}) {
         if(!response.ok){
             throw new Error();
         }
-        const data = await response.json()
-        console.log(data)
-        setLoggedin(true)
+        //const data = await response.json()
+        //console.log(data)
+        setUser(userName)
     } catch (error) {
         alert('not a valid login')
-        setLoggedin(false);
+    }
+    
+ }
+ const onclick = async (e) =>{
+    e.preventDefault();
+    try {
+        const response = await fetch('/api/users/register',{
+            method: 'POST', 
+            headers: {'Content-Type': 'application/json'},
+            credentials: 'include',
+            body: JSON.stringify({
+                username: userName,
+                password: password
+        })})
+        console.log(response.ok)
+        if(!response.ok){
+            throw new Error();
+        }
+        setUser(userName)
+    } catch (error) {
+        alert('not a valid login')
     }
     
  }
@@ -42,12 +57,13 @@ export default function Login({setLoggedin}) {
     
         <form id ='login-form' onSubmit={onSubmit}>
             <div>
-                <label >Usename: <input type="text" value={userName} onChange={onChangeU}/></label>
+                <label >Usename: <input type="text" required  value={userName} onChange={e => setUserName(e.target.value)}/></label>
             </div>
             <div>
-                <label>Password: <input type="text" value={password} onChange={onChangeP}/></label>
+                <label>Password: <input type="password" required  value={password} onChange={e => setPassword(e.target.value)} /></label>
             </div>
                 <button > Login </button>
+                <button type='button' onClick={onclick}> Register </button>
         </form>
   )
 }

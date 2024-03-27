@@ -1,6 +1,4 @@
 import './CSS/StockInfoContainer.css';
-
-import React from 'react'
 import StockPrice from './StockPrice'
 import StockNews from './StockNews'
 import BuySell from './BuySell'

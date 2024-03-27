@@ -1,48 +1,35 @@
-import React from 'react';
 import './CSS/BuySell.css'
 import PropTypes from 'prop-types';
 
-export default function BuySell({ticker ,api,setRender,render}) {
+export default function BuySell({ticker,setRender,render,}) {
 
     async function BuyClick(){
         
             try {
-                const response = await fetch(`https://finnhub.io/api/v1/quote?symbol=${ticker}&token=${api}`)
-                if(!response.ok){
-                    throw new Error()
-                }
-                const data = await response.json();
-                if(data.c === 0){
-                    alert('cant buy not a ticker')
-                    throw new Error()
-                } 
-                const res = await fetch('http://localhost:3000/api',{
+                const res = await fetch('/api/users/account',{
                     method: 'POST',
+                    credentials: 'include',
                     headers: {
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        user: 1,
                         ticker,
-                        price: data.c
                     })
                 });
                 if(!res.ok){
-                    throw new Error()
-                }
+                    throw new Error('not a good ticket')
+                }          
                 setRender(!render)
-
-          } catch (error) {
-              console.error('Error fetching data:', error);
-              // Handle error
-          }
-          
-
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
     }
+
     const SellClick = async ()=>{
         try {
-            const response = await fetch(`http://localhost:3000/api/${ticker}`,{
-                method: 'DELETE'
+            const response = await fetch(`/api/users/account/sell/${ticker}`,{
+                method: 'PUT',
+                credentials: 'include'
             })
             if(!response.ok){
                 throw new Error(response.status)
@@ -50,20 +37,20 @@ export default function BuySell({ticker ,api,setRender,render}) {
             setRender(!render)
         } catch (error) {
             console.log(ticker)
-            alert('Error: ' + error.message + ' could not delete')
+            alert('Error: ' + error.message + ' could not sell')
         }
     }
 
-  return (
-    <div id='buy-sell'>
-        <button onClick={BuyClick}>
-            BUY {ticker}
-        </button>
-        <button onClick={SellClick}>
-            SELL {ticker}
-        </button>
-    </div>
-  )
+    return (
+        <div id='buy-sell'>
+            <button onClick={BuyClick}>
+                BUY {ticker}
+            </button>
+            <button onClick={SellClick}>
+                SELL {ticker}
+            </button>
+        </div>
+    )
 }
 BuySell.propTypes ={
     ticker: PropTypes.string,

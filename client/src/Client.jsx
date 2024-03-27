@@ -6,9 +6,8 @@ import StockInfoContainer from './StockInfoContainer';
 import Dashboard from './Dashboard';
 
 export default function Client({ticker}) {
-  const api = 'c6s0ql2ad3ifcngb8qvg';
   const [render,setRender] = useState()
-
+  const api = 'c6s0ql2ad3ifcngb8qvg'
   return (
     <>
       <Dashboard render={render} setRender={setRender}/>
